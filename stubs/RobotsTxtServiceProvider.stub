@@ -1,0 +1,29 @@
+<?php
+
+declare(strict_types=1);
+
+namespace DummyNamespace;
+
+use Seo\Robots\Laravel\Providers\RobotsTxtServiceProvider as ServiceProvider;
+use Seo\Robots\Laravel\RobotsTxtConfig;
+use Seo\Robots\RobotsTxtBuilder;
+use Seo\Robots\RobotsTxtGroupBuilder;
+
+final class RobotsTxtServiceProvider extends ServiceProvider
+{
+    protected function configure(RobotsTxtConfig $config): void
+    {
+        $config
+            ->robots(
+                fn () => (new RobotsTxtBuilder())
+                    ->group(
+                        fn (RobotsTxtGroupBuilder $group) => $group
+                            ->agent('*')
+                            ->allow('/'),
+                    )
+                    ->sitemap('https://example.com/sitemap.xml')
+                    ->build(),
+            )
+        ;
+    }
+}
