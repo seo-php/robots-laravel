@@ -11,22 +11,8 @@
     ],
     "require": {
         "php": "^8.4",
-        "seophp/robots": "dev-main"
-    },
-    "require-dev": {
-        "eolica/coding-standard": "^2.0",
-        "orchestra/testbench": "^10.0",
-        "pestphp/pest": "^4.0",
-        "phpstan/phpstan": "^2.0",
-        "rector/rector": "^2.0",
-        "symfony/var-dumper": "^7.0",
-        "pestphp/pest-plugin-laravel": "^4.0"
-    },
-    "repositories": {
-        "seophp/robots": {
-            "type": "path",
-            "url": "../php-robots"
-        }
+        "illuminate/support": ">=12.0",
+        "seophp/robots": "self.version"
     },
     "autoload": {
         "psr-4": {
@@ -38,12 +24,9 @@
             "Seo\\Robots\\Laravel\\Tests\\": "tests"
         }
     },
-    "minimum-stability": "dev",
     "prefer-stable": true,
     "config": {
-        "allow-plugins": {
-            "pestphp/pest-plugin": true
-        }
+        "sort-packages": true
     },
     "extra": {
         "laravel": {
@@ -51,22 +34,5 @@
                 "Seo\\Robots\\Laravel\\RobotsServiceProvider"
             ]
         }
-    },
-    "scripts": {
-        "lint": [
-            "ecs check"
-        ],
-        "lint:fix": [
-            "ecs check --fix"
-        ],
-        "analyse": [
-            "phpstan analyse"
-        ],
-        "test": [
-            "pest --colors=always --parallel"
-        ],
-        "refactor": [
-            "rector process"
-        ]
     }
 }
